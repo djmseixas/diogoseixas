@@ -1,0 +1,228 @@
+* {
+  box-sizing: border-box;
+  /* border: 1px dashed red; */
+}
+
+*::before,
+*::after {
+  box-sizing: initial;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  width: 100%;
+  height: 100dvh;
+  position: relative;
+}
+
+.bg {
+  background: url(imgs/bg.png) no-repeat center center fixed;
+  background-size: cover;
+  width: calc(100% + 100px);
+  height: calc(100dvh + 100px);
+  position: absolute;
+}
+
+.logo-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 200px;
+  aspect-ratio: 1 / 1;
+  transition: all 0.2s linear;
+  margin: 20px;
+}
+
+.logo {
+  border-radius: 100%;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.logo-symbol {
+  background: url(imgs/logo-symbol.png);
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  z-index: 2;
+}
+
+.logo-glass-effect {
+  background: url(imgs/logo-glass-effect.png);
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  opacity: 0.5;
+  z-index: 1;
+  transition: opacity 0.2s linear;
+}
+
+.logo-wrapper:hover .logo-glass-effect {
+  opacity: 0.75;
+}
+
+.logo-shadow {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 1;
+  border-radius: 100%;
+  box-shadow: 0px 0px 200px 0px rgba(255, 255, 255, 1);
+  transition: opacity 0.4s linear;
+  opacity: 0.5;
+}
+
+.logo-wrapper:hover .logo-shadow {
+  opacity: 1;
+}
+
+/* .logo-bg {
+  background: url(imgs/logo-bg.png);
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  animation: logo-bg-animation 20s linear infinite;
+}
+
+@keyframes logo-bg-animation {
+  0% {
+    filter: hue-rotate(0deg);
+    transform: rotate(0deg);
+  }
+
+  50% {
+    filter: hue-rotate(360deg);
+  }
+
+  100% {
+    filter: hue-rotate(0deg);
+    transform: rotate(360deg);
+  }
+} */
+
+.clouds {
+  position: absolute;
+  animation: clouds-animation 120s linear infinite,
+    clouds-animation2 60s linear infinite, clouds-animation3 60s linear infinite;
+  z-index: 1;
+}
+
+@keyframes clouds-animation {
+  0% {
+    translate: 50%;
+  }
+
+  100% {
+    translate: -50%;
+  }
+}
+
+@keyframes clouds-animation2 {
+  0% {
+    opacity: 0;
+  }
+
+  10% {
+    opacity: 1;
+  }
+
+  25% {
+    opacity: 0.5;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  75% {
+    opacity: 0.5;
+  }
+
+  90% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes clouds-animation3 {
+  0% {
+    filter: blur(8px);
+  }
+
+  25% {
+    filter: blur(0);
+  }
+
+  50% {
+    filter: blur(8px);
+  }
+
+  75% {
+    filter: blur(0);
+  }
+
+  100% {
+    filter: blur(8px);
+  }
+}
+
+.sky {
+  position: absolute;
+  width: 200%;
+  height: 100%;
+  top: -50%;
+  left: -50%;
+  filter: blur(200px);
+  z-index: 1;
+}
+
+.sky.sky--day {
+  background: linear-gradient(
+    180deg,
+    rgb(70 0 235) 0%,
+    rgb(90 170 255) 90%,
+    rgb(0 0 60) 100%
+  );
+  opacity: 0.5;
+}
+
+.sky.sky--night {
+  background: linear-gradient(
+    180deg,
+    rgb(80 80 160) 0%,
+    rgb(0 0 60) 90%,
+    rgb(0 0 60) 100%
+  );
+  opacity: 0.75;
+}
+
+.stars {
+  position: absolute;
+  top: 0;
+  width: 100vw;
+  height: 50vh;
+  background: transparent;
+  overflow: hidden;
+  mask-image: linear-gradient(
+    180deg,
+    rgb(0, 0, 0, 1) 50%,
+    rgb(0, 0, 0, 0) 100%
+  );
+  z-index: 1;
+}
+
+.star {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background: white;
+  border-radius: 50%;
+}
