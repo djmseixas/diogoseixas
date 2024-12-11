@@ -24,7 +24,11 @@ body {
 }
 
 .bg {
-  background: url(imgs/bg.png) no-repeat center center fixed;
+  background: image-set(
+      url("imgs/bg.avif") type("image/avif"),
+      url("imgs/bg.png") type("image/png")
+    )
+    no-repeat center center fixed;
   background-size: cover;
   width: calc(100% + 100px);
   height: calc(100dvh + 100px);

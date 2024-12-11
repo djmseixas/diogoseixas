@@ -10,7 +10,10 @@
   </head>
   <body>
     <div class="header" id="header">
-      <img class="clouds" src="imgs/clouds.png" />
+      <picture class="clouds">
+        <source srcset="imgs/clouds.avif" type="image/avif" />
+        <img src="imgs/clouds.png" />
+      </picture>
       <div class="sky" id="sky"></div>
       <div class="stars" id="stars"></div>
       <div class="logo-wrapper">
